@@ -9,6 +9,9 @@
 - redondance `_whitelist` et `_voters` : optimisable en un seul mapping, mais potentiellement intéressant d'avoir deux notions distinctes (surtout dans le cas de votes multiples)
 - `increaseWorkflowStatus`: seule manière de faire progresser l'étape actuelle du vote, aurrait pu être plus souple (une étape cible en paramètre par exemple) tant qu'on vérifie que l'indexe progresse.
 - J'ai choisi de n'ouvrir la visibilité des votes individuels qu'après la fin des votes, adaptable si besoin dans le modifier `onlyReadableVotes`.
+- Le renvoi de la proposition gagnante d'un vote pourrait être améliorée : 
+    - en la conditionnant par le fait d'avoir au moins un vote pour mieux traiter le cas peu pertinent où aucun vote n'a été effectué.
+    - quand plusieurs propositions ont le même nombre de votes, la première ayant atteint ce nombre est renvoyée. Le choix entre plusieurs propositions au même nombre de votes pourrait être retravaillée.
 
 ## Vote simple
 Implémenté dans [Voting.sol](./Voting.sol).
