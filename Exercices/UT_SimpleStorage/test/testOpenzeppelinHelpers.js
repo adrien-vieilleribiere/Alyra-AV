@@ -10,7 +10,7 @@ contract("SimpleStorage", accounts => {
 
     it("...the expect case.", async () => {
         console.log("gogogo first test");
-        expect("tam".length).to.equal(3, "le tableau de mots n'est pas de 8 mots");
+        expect("tam".length).to.equal(3, "la taille du mot n'est pas 3");
     });
     it("...a stronger expect case with type test.", async () => {
         const simpleStorageInstance = await SimpleStorage.deployed();
