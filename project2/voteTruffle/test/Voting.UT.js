@@ -227,7 +227,7 @@ contract("MyVoting", async accounts => {
 
         });
 
-        it("Try all status updates", async () => {
+        it("Test methods in all wrong satus", async () => {
             for (var i = 0; i < 5; i++) {
                 for (var j = 1; j < 5; j++) {
                     if (i !== j) {
@@ -236,12 +236,14 @@ contract("MyVoting", async accounts => {
                                 await expectRevert.unspecified(votingInstance.startProposalsRegistering({ from: _owner }));
                                 break;
                             case 1:
-                                await expectRevert.unspecified(votingInstance.endProposalsRegistering({ from: _owner }), badStateErrors[1]);
+                                await expectRevert.unspecified(votingInstance.addProposal(_prop1desc, { from: _voter1 }));
+                                await expectRevert.unspecified(votingInstance.endProposalsRegistering({ from: _owner }));
                                 break;
                             case 2:
                                 await expectRevert.unspecified(votingInstance.startVotingSession({ from: _owner }));
                                 break;
                             case 3:
+                                await expectRevert.unspecified(votingInstance.setVote(_prop1id, { from: _owner }));
                                 await expectRevert.unspecified(votingInstance.endVotingSession({ from: _owner }));
                                 break;
                             case 4:
@@ -253,6 +255,7 @@ contract("MyVoting", async accounts => {
                 }
                 switch (i) {
                     case 0:
+                        await votingInstance.addVoter(_voter1, { from: _owner });
                         await votingInstance.startProposalsRegistering({ from: _owner });
                         break;
                     case 1:
