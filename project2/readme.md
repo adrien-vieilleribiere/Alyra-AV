@@ -1,13 +1,25 @@
 # Remarques sur le rendu
 
-La premier partie regroupe les tests qui vérifier les droits d'accès sur les méthodes du smart contract et les évènements émis associés à un cas d'utilisation réussie.
+Dans [voteTruffle](./voteTruffle) l'ensemble du project avec truffle : 
 
-La seconde s'attarde sur les éléments de stockage et vérifie les changements en mémoire d'un appel réussit de chaque méthode.
+```sh 
+cd voteTruffle
+npm install
+truffle test
+```
 
-La suivante décrit quelques cas limites pour tester au moins une fois ces cas d'erreurs particuliers
 
-La quatrième vérifie la cohérence en terme de workflowStatus des opérations: toutes sont interdites dans un mauvais status. 
-Il serait préférable de retirer les ’unspecified’ et de renforcer ces tests avec un véritable message d'erreur.
+
+## Organisation du fichier de test
+
+- La premier partie regroupe les tests qui vérifier les droits d'accès sur les méthodes du smart contract et les évènements émis associés à un cas d'utilisation réussie.
+
+- La seconde s'attarde sur les éléments de stockage et vérifie les changements en mémoire d'un appel réussit de chaque méthode.
+
+- La suivante décrit quelques cas limites pour tester au moins une fois ces cas d'erreurs particuliers.
+
+- La quatrième vérifie la cohérence en terme de workflowStatus des opérations: toutes sont interdites dans un mauvais status. 
+Il serait préférable de retirer les ’unspecified’ et de renforcer ces tests avec les véritables messages d'erreur.
 
 ## Détails des tests
 ### Authorized adresses and events
