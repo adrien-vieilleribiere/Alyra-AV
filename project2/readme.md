@@ -1,13 +1,20 @@
 # Remarques sur le rendu
 
-Dans [voteTruffle](./voteTruffle) l'ensemble du project avec truffle : 
+Dans [truffleVote](./truffleVote) l'ensemble du project avec truffle : 
 
 ```sh 
-cd voteTruffle
+cd truffleVote
 npm install
 truffle test
 ```
 
+Dans [hardhatVote](./truffleVote) l'ensemble du project réinjectée dans hardhat (pour pouvoir vérifier la couverture) : 
+
+```sh 
+cd hardhatVote
+npm install
+npx hardhat test
+```
 
 
 ## Organisation du fichier de test
