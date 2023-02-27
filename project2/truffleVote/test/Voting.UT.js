@@ -148,7 +148,6 @@ contract("MyVoting", async accounts => {
                 const voter1registered = await votingInstance.getVoter(_voter1, { from: _voter1 });
                 expect(voter1registered.isRegistered).to.equal(true);
                 expect(voter1registered.hasVoted).to.equal(false);
-                // await expectEvent(adVoter1, 'VoterRegistered', { voterAddress: _voter1 });
             });
         });
 
@@ -160,10 +159,6 @@ contract("MyVoting", async accounts => {
                 await expect(prop0.description).to.equal("GENESIS");
                 await expect(BN(prop0.voteCount)).to.bignumber.equal(BN(0)); // arevoir
                 expect(await votingInstance.workflowStatus.call()).to.bignumber.equal(new BN(1));
-                // await expectEvent(startProposalsRegistering, 'WorkflowStatusChange', {
-                //     previousStatus: new BN(0),
-                //     newStatus: new BN(1)
-                // });
             });
         });
         context("addProposal", async () => {
@@ -306,14 +301,12 @@ contract("MyVoting", async accounts => {
         });
 
         it("Only register adresses once", async () => {
-            //let votingInstance = await MyVoting.deployed();
             const adVoter1 = await votingInstance.addVoter(_voter1);
             await expectRevert(votingInstance.addVoter(_voter1), "Already registered");
             await votingInstance.startProposalsRegistering();
         });
 
         it("Reject empty propositions", async () => {
-            //const votingInstance = await MyVoting.deployed();
             const addPropososal = await votingInstance.addProposal(_prop1desc, { from: _voter1 });
             await expectRevert(votingInstance.addProposal("", { from: _voter1 }), "Vous ne pouvez pas ne rien proposer");
             await votingInstance.endProposalsRegistering();
@@ -329,26 +322,7 @@ contract("MyVoting", async accounts => {
             await expectRevert(votingInstance.setVote(_prop1id, { from: _voter1 }), "You have already voted");
 
         });
-
     });
-
-    // describe("No votes", async () => {
-
-    //     before(async function () {
-    //         votingInstance = await MyVoting.new();
-    //     });
-
-    //     it("Only register adresses once", async () => {
-    //         await votingInstance.startProposalsRegistering();
-    //         await votingInstance.endProposalsRegistering();
-    //         await votingInstance.startVotingSession({ from: _owner });
-    //         await votingInstance.endVotingSession({ from: _owner });
-    //         await votingInstance.tallyVotes({ from: _owner });
-    //         expect(BN(await votingInstance.winningProposalID())).to.bignumber.equal(BN(0));
-    //     });
-
-
-    // });
 
     describe.skip("A more realistic case", async () => {
 
