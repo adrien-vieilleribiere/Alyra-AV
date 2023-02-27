@@ -10,21 +10,15 @@ contract("MyVoting", async accounts => {
     const _owner = accounts[0];
     const _voter1 = accounts[1];
     const _voter2 = accounts[2];
-    const _voter3 = accounts[3];
-    const _voter4 = accounts[4];
-    const _voter5 = accounts[5];
-    const _voter6 = accounts[6];
-    const _voter7 = accounts[7];
     const _prop1id = new BN(1);
     const _prop1desc = "description 1"
     const _prop2id = new BN(2);
     const _prop2desc = "description 2"
     let votingInstance;
-
-    let badStateErrors = [
-        "Voters registration is not open yet",
-        "Registering proposals havent start"
-    ];
+    let maxPropositions;
+    let winningPid;
+    let winningCount;
+    let randomProp;
 
     describe("Authorized adresses and events", async () => {
 
@@ -102,6 +96,18 @@ contract("MyVoting", async accounts => {
             });
         });
 
+        context("getVoter", async () => {
+            it("Not Voter cannot getVoter", async () => {
+                await expectRevert(votingInstance.getVoter(_voter1, { from: _owner }), "You're not a voter");
+            });
+        });
+
+        context("getOneProposal", async () => {
+            it("Not Voter cannot getOneProposal", async () => {
+                await expectRevert(votingInstance.getOneProposal(_prop1id, { from: _owner }), "You're not a voter");
+            });
+        });
+
         context("endVotingSession", async () => {
             it("Not Owner cannot endVotingSession", async () => {
                 await expectRevert(votingInstance.endVotingSession({ from: _voter1 }), "Ownable: caller is not the owner");
@@ -150,6 +156,9 @@ contract("MyVoting", async accounts => {
 
             it("workflowStatus is updated", async () => {
                 await votingInstance.startProposalsRegistering({ from: _owner });
+                const prop0 = await (votingInstance.getOneProposal(BN(0), { from: _voter1 }));
+                await expect(prop0.description).to.equal("GENESIS");
+                await expect(BN(prop0.voteCount)).to.bignumber.equal(BN(0)); // arevoir
                 expect(await votingInstance.workflowStatus.call()).to.bignumber.equal(new BN(1));
                 // await expectEvent(startProposalsRegistering, 'WorkflowStatusChange', {
                 //     previousStatus: new BN(0),
@@ -227,12 +236,15 @@ contract("MyVoting", async accounts => {
 
         });
 
-        it("Test methods in all wrong satus", async () => {
-            for (var i = 0; i < 5; i++) {
-                for (var j = 1; j < 5; j++) {
+        it("Test methods in all the bad satus", async () => {
+            for (var i = 0; i <= 5; i++) {
+                // tests in workflowStatus = i
+                for (var j = 0; j <= 5; j++) {
+                    // test the operations adapted to the workflowStatus j
                     if (i !== j) {
                         switch (j) {
                             case 0:
+                                await expectRevert.unspecified(votingInstance.addVoter(_voter2, { from: _owner }));
                                 await expectRevert.unspecified(votingInstance.startProposalsRegistering({ from: _owner }));
                                 break;
                             case 1:
@@ -248,9 +260,9 @@ contract("MyVoting", async accounts => {
                                 break;
                             case 4:
                                 await expectRevert.unspecified(votingInstance.tallyVotes({ from: _owner }));
+                                await expectRevert.unspecified(votingInstance.setVote(_prop1id, { from: _voter1 }));
                                 break;
                         }
-
                     }
                 }
                 switch (i) {
@@ -270,6 +282,16 @@ contract("MyVoting", async accounts => {
                     case 4:
                         await votingInstance.tallyVotes({ from: _owner });
                         break;
+                    // case 5:
+                    //     await expectRevert.unspecified(votingInstance.addVoter(_voter2, { from: _owner }));
+                    //     await expectRevert.unspecified(votingInstance.startProposalsRegistering({ from: _owner }));
+                    //     await expectRevert.unspecified(votingInstance.addProposal(_prop1desc, { from: _voter1 }));
+                    //     await expectRevert.unspecified(votingInstance.endProposalsRegistering({ from: _owner }));
+                    //     await expectRevert.unspecified(votingInstance.startVotingSession({ from: _owner }));
+                    //     await expectRevert.unspecified(votingInstance.setVote(_prop1id, { from: _owner }));
+                    //     await expectRevert.unspecified(votingInstance.endVotingSession({ from: _owner }));
+                    //     await expectRevert.unspecified(votingInstance.tallyVotes({ from: _owner }));
+                    //     break;
                 }
 
             }
@@ -310,5 +332,65 @@ contract("MyVoting", async accounts => {
 
     });
 
+    // describe("No votes", async () => {
+
+    //     before(async function () {
+    //         votingInstance = await MyVoting.new();
+    //     });
+
+    //     it("Only register adresses once", async () => {
+    //         await votingInstance.startProposalsRegistering();
+    //         await votingInstance.endProposalsRegistering();
+    //         await votingInstance.startVotingSession({ from: _owner });
+    //         await votingInstance.endVotingSession({ from: _owner });
+    //         await votingInstance.tallyVotes({ from: _owner });
+    //         expect(BN(await votingInstance.winningProposalID())).to.bignumber.equal(BN(0));
+    //     });
+
+
+    // });
+
+    describe.skip("A more realistic case", async () => {
+
+        before(async () => {
+            votingInstance = await MyVoting.new();
+            const maxVoters = 9;
+            maxPropositions = 300;
+            for (var i = 1; i <= maxVoters; i++) {
+                await votingInstance.addVoter(accounts[i], { from: _owner });
+            }
+            await votingInstance.startProposalsRegistering({ from: _owner });
+            for (var j = 0; j < maxPropositions; j++) {
+                await votingInstance.addProposal("Proposition " + j,
+                    { from: accounts[1 + Math.floor(Math.random() * maxVoters)] });
+            }
+
+            await votingInstance.endProposalsRegistering({ from: _owner });
+            await votingInstance.startVotingSession({ from: _owner });
+            for (var i = 1; i <= maxVoters; i++) {
+                await votingInstance.setVote(
+                    Math.floor(Math.random() * maxPropositions),
+                    { from: accounts[i] }
+                );
+            }
+            await votingInstance.endVotingSession({ from: _owner });
+            await votingInstance.tallyVotes({ from: _owner });
+            winningPid = await votingInstance.winningProposalID();
+            const prop1 = await (votingInstance.getOneProposal(winningPid, { from: _voter1 }));
+            winningCount = parseInt(prop1.voteCount);
+            randomProp = await votingInstance.getOneProposal(new BN(Math.floor(Math.random() * maxPropositions)), { from: _voter1 });
+        });
+        it("the winning id corresponds to a proposition ", async () => {
+            expect(parseInt(winningPid)).to.be.at.most(maxPropositions - 1);
+        });
+        it("the winning id has votes ", async () => {
+            expect(winningCount).to.be.at.least(1);
+        });
+
+        it("Another proposition has less votes ", async () => {
+            expect(parseInt(randomProp.voteCount)).to.be.at.most(winningCount);
+        });
+
+    });
 
 });
