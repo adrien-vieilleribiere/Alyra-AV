@@ -2,9 +2,9 @@
 
 Deux versions sont disponibles
 - [truffleVote](./truffleVote) l'ensemble du project avec truffle.
-- [hardhatVote](./truffleVote) l'ensemble du project réinjectée dans hardhat (pour pouvoir vérifier la couverture avec [https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-truffle5].
+- [hardhatVote](./truffleVote) l'ensemble du project réinjectée dans hardhat (pour pouvoir vérifier la couverture avec https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-truffle5.
 Dans les deux cas, les fichiers sont les mêmes:
-- `contracts/Voting.sol` : [https://github.com/lecascyril/CodesSatoshi/blob/main/Voting.sol](le fichier solidity de la correction du projet 1) donné en entrée.
+- `contracts/Voting.sol` : le fichier solidity de la correction du projet 1: https://github.com/lecascyril/CodesSatoshi/blob/main/Voting.sol
 - `test/voting.UT.js` : le fichier de test du fichier solidity
 
 
