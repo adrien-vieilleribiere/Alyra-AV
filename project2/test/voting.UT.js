@@ -10,11 +10,11 @@ contract("MyVoting", async accounts => {
     const _owner = accounts[0];
     const _voter1 = accounts[1];
     const _voter2 = accounts[2];
-    const _voter3 = accounts[3];
-    const _voter4 = accounts[4];
-    const _voter5 = accounts[5];
-    const _voter6 = accounts[6];
-    const _voter7 = accounts[7];
+    // const _voter3 = accounts[3];
+    // const _voter4 = accounts[4];
+    // const _voter5 = accounts[5];
+    // const _voter6 = accounts[6];
+    // const _voter7 = accounts[7];
     const _prop1id = new BN(1);
     const _prop1desc = "description 1"
     const _prop2id = new BN(2);
@@ -309,6 +309,31 @@ contract("MyVoting", async accounts => {
             await expectRevert(votingInstance.setVote(_prop1id, { from: _voter1 }), "You have already voted");
 
         });
+
+    });
+
+    describe("A more realistic case", async () => {
+
+        before(async function () {
+            votingInstance = await MyVoting.new();
+            const maxVoters = 3;
+            const maxPropositions = 10;
+            for (var i = 1; i <= maxVoters; i++) {
+                await votingInstance.addVoter(account[i], { from: _owner });
+            }
+            await votingInstance.startProposalsRegistering({ from: _owner });
+            for (var j = 1; j <= maxPropositions; j++) {
+                await votingInstance.addProposal("Proposition " + j,
+                    { from: accounts[1 + Math.floor(Math.random() * maxVoters)] });
+            }
+
+
+        });
+
+        it("test ", async () => {
+            expect(true).to.be.true;
+        });
+
 
     });
 

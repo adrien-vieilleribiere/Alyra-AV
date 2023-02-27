@@ -1,0 +1,490 @@
+{
+ "stats": {
+  "suites": 23,
+  "tests": 34,
+  "passes": 34,
+  "pending": 0,
+  "failures": 0
+ },
+ "tests": [
+  {
+   "title": "Not Owner cannot add",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addVoter Not Owner cannot add",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can add, VoterRegistered is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addVoter Owner can add, VoterRegistered is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot start Proposals Registering",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startProposalsRegistering Not Owner cannot start Proposals Registering",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can start proposals registering, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startProposalsRegistering Owner can start proposals registering, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Voter cannot propose",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addProposal Not Voter cannot propose",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Voter can propose, ProposalRegistered is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addProposal Voter can propose, ProposalRegistered is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot end Proposals Registering",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endProposalsRegistering Not Owner cannot end Proposals Registering",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can end endProposalsRegistering, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endProposalsRegistering Owner can end endProposalsRegistering, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot start Proposals Registering",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startVotingSession Not Owner cannot start Proposals Registering",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can start start the voting session, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startVotingSession Owner can start start the voting session, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Voter cannot vote",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events setVote Not Voter cannot vote",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Voter can vote, Voted is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events setVote Voter can vote, Voted is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot endVotingSession",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endVotingSession Not Owner cannot endVotingSession",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can start endVotingSession, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endVotingSession Owner can start endVotingSession, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "not owner cannot tally votes",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events tallyVotes not owner cannot tally votes",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can tally votes, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events tallyVotes Owner can tally votes, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "voter is stored",
+   "fullTitle": "Contract: MyVoting Storages addVoter voter is stored",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages startProposalsRegistering workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "proposal is stored",
+   "fullTitle": "Contract: MyVoting Storages addProposal proposal is stored",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages endProposalsRegistering workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages startVotingSession workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "vote is updated in the proposal",
+   "fullTitle": "Contract: MyVoting Storages setVote vote is updated in the proposal",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "voter is updated",
+   "fullTitle": "Contract: MyVoting Storages setVote voter is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages endVotingSession workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "winningProposalID is updated",
+   "fullTitle": "Contract: MyVoting Storages tallyVotes winningProposalID is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Test methods in all the bad satus",
+   "fullTitle": "Contract: MyVoting Workflow Test methods in all the bad satus",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Only register adresses once",
+   "fullTitle": "Contract: MyVoting Bad input Cases Only register adresses once",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Reject empty propositions",
+   "fullTitle": "Contract: MyVoting Bad input Cases Reject empty propositions",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Vote for existing proposition",
+   "fullTitle": "Contract: MyVoting Bad input Cases Vote for existing proposition",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Vote only once",
+   "fullTitle": "Contract: MyVoting Bad input Cases Vote only once",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Only register adresses once",
+   "fullTitle": "Contract: MyVoting No votes Only register adresses once",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "the winning id corresponds to a proposition ",
+   "fullTitle": "Contract: MyVoting A more realistic case the winning id corresponds to a proposition ",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "the winning id has votes ",
+   "fullTitle": "Contract: MyVoting A more realistic case the winning id has votes ",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Another proposition has less votes ",
+   "fullTitle": "Contract: MyVoting A more realistic case Another proposition has less votes ",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  }
+ ],
+ "failures": [],
+ "passes": [
+  {
+   "title": "Not Owner cannot add",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addVoter Not Owner cannot add",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can add, VoterRegistered is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addVoter Owner can add, VoterRegistered is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot start Proposals Registering",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startProposalsRegistering Not Owner cannot start Proposals Registering",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can start proposals registering, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startProposalsRegistering Owner can start proposals registering, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Voter cannot propose",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addProposal Not Voter cannot propose",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Voter can propose, ProposalRegistered is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events addProposal Voter can propose, ProposalRegistered is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot end Proposals Registering",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endProposalsRegistering Not Owner cannot end Proposals Registering",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can end endProposalsRegistering, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endProposalsRegistering Owner can end endProposalsRegistering, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot start Proposals Registering",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startVotingSession Not Owner cannot start Proposals Registering",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can start start the voting session, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events startVotingSession Owner can start start the voting session, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Voter cannot vote",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events setVote Not Voter cannot vote",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Voter can vote, Voted is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events setVote Voter can vote, Voted is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Not Owner cannot endVotingSession",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endVotingSession Not Owner cannot endVotingSession",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can start endVotingSession, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events endVotingSession Owner can start endVotingSession, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "not owner cannot tally votes",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events tallyVotes not owner cannot tally votes",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner can tally votes, WorkflowStatusChange is emitted",
+   "fullTitle": "Contract: MyVoting Authorized adresses and events tallyVotes Owner can tally votes, WorkflowStatusChange is emitted",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "voter is stored",
+   "fullTitle": "Contract: MyVoting Storages addVoter voter is stored",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages startProposalsRegistering workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "proposal is stored",
+   "fullTitle": "Contract: MyVoting Storages addProposal proposal is stored",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages endProposalsRegistering workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages startVotingSession workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "vote is updated in the proposal",
+   "fullTitle": "Contract: MyVoting Storages setVote vote is updated in the proposal",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "voter is updated",
+   "fullTitle": "Contract: MyVoting Storages setVote voter is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "workflowStatus is updated",
+   "fullTitle": "Contract: MyVoting Storages endVotingSession workflowStatus is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "winningProposalID is updated",
+   "fullTitle": "Contract: MyVoting Storages tallyVotes winningProposalID is updated",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Test methods in all the bad satus",
+   "fullTitle": "Contract: MyVoting Workflow Test methods in all the bad satus",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Only register adresses once",
+   "fullTitle": "Contract: MyVoting Bad input Cases Only register adresses once",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Reject empty propositions",
+   "fullTitle": "Contract: MyVoting Bad input Cases Reject empty propositions",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Vote for existing proposition",
+   "fullTitle": "Contract: MyVoting Bad input Cases Vote for existing proposition",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Vote only once",
+   "fullTitle": "Contract: MyVoting Bad input Cases Vote only once",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Only register adresses once",
+   "fullTitle": "Contract: MyVoting No votes Only register adresses once",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "the winning id corresponds to a proposition ",
+   "fullTitle": "Contract: MyVoting A more realistic case the winning id corresponds to a proposition ",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "the winning id has votes ",
+   "fullTitle": "Contract: MyVoting A more realistic case the winning id has votes ",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Another proposition has less votes ",
+   "fullTitle": "Contract: MyVoting A more realistic case Another proposition has less votes ",
+   "file": "test/Voting.UT.js",
+   "currentRetry": 0,
+   "err": {}
+  }
+ ]
+}

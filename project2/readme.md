@@ -1,20 +1,11 @@
 # Remarques sur le rendu
 
-Dans [truffleVote](./truffleVote) l'ensemble du project avec truffle : 
-
-```sh 
-cd truffleVote
-npm install
-truffle test
-```
-
-Dans [hardhatVote](./truffleVote) l'ensemble du project réinjectée dans hardhat (pour pouvoir vérifier la couverture) : 
-
-```sh 
-cd hardhatVote
-npm install
-npx hardhat test
-```
+Deux versions sont disponibles
+- [truffleVote](./truffleVote) l'ensemble du project avec truffle.
+- [hardhatVote](./truffleVote) l'ensemble du project réinjectée dans hardhat (pour pouvoir vérifier la couverture avec [https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-truffle5].
+Dans les deux cas, les fichiers sont les mêmes:
+- `contracts/Voting.sol` : [https://github.com/lecascyril/CodesSatoshi/blob/main/Voting.sol](le fichier solidity de la correction du projet 1) donné en entrée.
+- `test/voting.UT.js` : le fichier de test du fichier solidity
 
 
 ## Organisation du fichier de test
@@ -27,6 +18,8 @@ npx hardhat test
 
 - La quatrième vérifie la cohérence en terme de workflowStatus des opérations: toutes sont interdites dans un mauvais status. 
 Il serait préférable de retirer les ’unspecified’ et de renforcer ces tests avec les véritables messages d'erreur.
+
+- le dernier bloc (exclu par défaut car plus gourmand en gaz) test un exemple avec plus de créations qui permet de tester un peu plus profondément la fonction de calcul de la proposition gagnante.
 
 ## Détails des tests
 ### Authorized adresses and events
@@ -48,6 +41,10 @@ Il serait préférable de retirer les ’unspecified’ et de renforcer ces test
 - setVote
 	 - Not Voter cannot vote
 	 - Voter can vote, Voted is emitted
+- getVote
+	- Not Voter cannot getVoter
+- getOneProposal
+    - Not Voter cannot getOneProposal	 
 - endVotingSession
 	 - Not Owner cannot endVotingSession
 	 - Owner can start endVotingSession, WorkflowStatusChange is emitted
